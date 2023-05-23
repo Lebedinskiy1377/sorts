@@ -31,12 +31,6 @@ void merge(int* arr, int start, int end) {
         return;
     }
 
-    if (end - start == 2) {
-        if (arr[start] > arr[start + 1])
-            std::swap(arr[start], arr[start + 1]);
-        return;
-    }
-
     int mid = start + (end - start) / 2;
 
     merge(arr, start, mid);
@@ -49,7 +43,7 @@ void merge(int* arr, int start, int end) {
     int end2 = end;
     int i = 0;
     while (i < end - start) {
-        if (begin1 >= end1 || (b2 < end2 && arr[begin2] <= arr[begin1])) {
+        if (begin1 >= end1 || (begin2 < end2 && arr[begin2] <= arr[begin1])) {
             sol[i] = arr[begin2];
             ++begin2;
         }
