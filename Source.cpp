@@ -71,7 +71,7 @@ const int SIZE = 10;
 int main() {
     int mas[SIZE] = { 5, 1, 12, 4, 18, 16, 14, 24, 30, -50 };
     unsigned int start = clock();
-    insertion_sort(mas, SIZE);
+    //insertion_sort(mas, SIZE);
     unsigned int final = clock();
 
    // for (auto& it : mas)
