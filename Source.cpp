@@ -43,18 +43,19 @@ void merge(int* arr, int start, int end) {
     merge(arr, mid, end);
 
     int* sol = new int[end];
-    int b1 = start;
-    int e1 = start + (end - start) / 2;
-    int b2 = e1;
+    int begin1 = start;
+    int end1 = start + (end - start) / 2;
+    int begin2 = end1;
+    int end2 = end;
     int i = 0;
     while (i < end - start) {
-        if (b1 >= e1 || (b2 < end && arr[b2] <= arr[b1])) {
-            sol[i] = arr[b2];
-            ++b2;
+        if (begin1 >= end1 || (b2 < end2 && arr[begin2] <= arr[begin1])) {
+            sol[i] = arr[begin2];
+            ++begin2;
         }
         else {
-            sol[i] = arr[b1];
-            ++b1;
+            sol[i] = arr[begin1];
+            ++begin1;
         }
         ++i;
     }
@@ -62,6 +63,7 @@ void merge(int* arr, int start, int end) {
     for (int i = start; i < end; ++i) {
         arr[i] = sol[i - start];
     }
+    delete[] sol;
 }
 
 const int SIZE = 10;
